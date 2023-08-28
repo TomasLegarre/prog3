@@ -1,7 +1,14 @@
+//import './App.css';
+import Footer from './componentes/Footer/Footer';
+import Header from './componentes/Header/Header';
+
 function App() {
   return (
-    <p> React</p>
-
+    <div className='App'>
+      <Header/>
+      
+      <Footer />
+    </div>
   );
 }
 
