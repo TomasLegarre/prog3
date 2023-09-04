@@ -7,12 +7,22 @@ class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-                generos: [],
+                canciones: [],
                 favoritos: [],
                 valor: '',
                 search: undefined
         }
     }
+
+    componentDidMount() {
+        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=10')
+            .then(response => response.json())
+            .then(data => this.setState(
+                { canciones: data.results }
+            ))
+            .catch(error => console.log('El error fue' + error))
+    }
+
 
         evitarSubmit(evento){
             evento.preventDefault();
@@ -38,6 +48,15 @@ class Home extends Component {
                             <input type="submit" value="Submit"/>
                     </form>
                     <main>
+                    <div>
+                            <h2 className="Titulo"> 10 Tops tracks</h2>
+                            <Link to="/populares" className="boton-todo"> Ver todas las peliculas populares</Link>
+                        </div>
+                        <section className="card-container">
+                            {this.state.populares.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)}
+                        </section>
+
+                        <div></div>
           
     </main>
                    
