@@ -1,14 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 
-function Home(){
 
-    return(
-        <React.Fragment>
-            <h2>Home</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi earum totam praesentium ipsam ratione eligendi, repellat aliquid asperiores ea dolor ab, reiciendis nisi dignissimos nihil vero? Blanditiis inventore ab nesciunt.</p>
-        </React.Fragment>
-    )
+class Home extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+                generos: [],
+                favoritos: [],
+                valor: '',
+        }
+    }
+
+        evitarSubmit(evento){
+            evento.preventDefault();
+        }
+
+        controlarCambios(evento) {
+            this.setState({valor: evento.target.value});
+        }
+
+        render() {
+            console.log(this.state)
+
+            return(
+                <React.Fragment>
+    
+                    <h2>Home</h2>
+        
+    
+                     
+                    <form className="search" onSubmit={(evento) => this.evitarSubmit(evento)} >
+                            <label>Busqueda:</label>
+                            <input type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor}/>
+                            <input type="submit" value="Submit"/>
+                    </form>
+                    
+                   
+               
+        
+                </React.Fragment>
+            )
+        }
+
+    
+    
+
 }
 
 export default Home;
