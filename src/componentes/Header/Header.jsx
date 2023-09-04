@@ -1,28 +1,30 @@
-import React from "react"
+import React from "react";
+import {Link} from "react-router-dom";
+
 
 
 function Header (props){
     return(
         <header>
-      <article class="logo">
+      <article className="logo">
         <a href="index.html"><img src="./img/Vibes.gif" alt="logo" /></a>
       </article>
 
       <nav>
-        <ul class="links">
-          <li><a href="Home.js">Home</a></li>
-          <li><a href="genres.html">Géneros</a></li>
-          <li><a href="playlist.html">Favoritos</a></li>
+        <ul className="links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/generos">Generos</Link></li>
+          <li><Link to="/favoritos">Favoritos</Link></li>
         </ul>
       </nav>
 
       
-      <article class="all-search">
-        <section class="search">
-          <form action="search-results.html" method="GET" class="formIndex">
-            <input type="text" class="busq" name="buscador" value="" />
-            <button class="bSub" type="submit">
-              <i class="fa fa-search"></i>
+      <article className="all-search">
+        <section className="search">
+          <form action="search-results.html" method="GET" className="formIndex">
+            <input type="text" className="busq" name="buscador" value="" />
+            <button className="bSub" type="submit">
+              <i className="fa fa-search"></i>
             </button>
           </form>
         </section>
