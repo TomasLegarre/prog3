@@ -10,6 +10,7 @@ class Home extends Component {
                 generos: [],
                 favoritos: [],
                 valor: '',
+                search: undefined
         }
     }
 
@@ -36,7 +37,9 @@ class Home extends Component {
                             <input type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor}/>
                             <input type="submit" value="Submit"/>
                     </form>
-                    
+                    <main>
+          
+    </main>
                    
                
         
