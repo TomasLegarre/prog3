@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import Canciones from "../../Canciones/Canciones"
 
 
 
@@ -15,11 +16,12 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=10')
+        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=5')
             .then(response => response.json())
-            .then(data => this.setState(
-                { canciones: data.results }
-            ))
+            .then(data => {this.setState(
+                { canciones: data.data },
+                console.log (data)
+            )} )
             .catch(error => console.log('El error fue' + error))
     }
 
@@ -47,18 +49,32 @@ class Home extends Component {
                             <input type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor}/>
                             <input type="submit" value="Submit"/>
                     </form>
+
+                    {/* Prueba de cargando */}
+                    {this.state.canciones.length === 0 ?
+                 <h3 className="Titulo"> Cargando ... </h3> : ''}
+
                     <main>
-                    <div>
-                            <h2 className="Titulo"> 10 Tops tracks</h2>
-                            <Link to="/populares" className="boton-todo"> Ver todas las peliculas populares</Link>
+
+                        <div>
+                            <h2 className="Titulo"> 5 Tops tracks</h2>
+                            <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
                         </div>
                         <section className="card-container">
-                            {this.state.populares.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)}
+                            {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
                         </section>
 
-                        <div></div>
+                        {/* ARMANDO EL DE ARTISTAS, creo que falta el fetch y guardar en array <div>
+                            <h2 className="Artista"> 5 Tops artistas</h2>
+                            <Link to="/" className="boton-todo"> Ver todas los artistas populares</Link>
+                        </div>
+                        <section className="card-container">
+                            {this.state.artistas.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
+                        </section> */}
+
+                    
           
-    </main>
+                    </main>
                    
                
         
