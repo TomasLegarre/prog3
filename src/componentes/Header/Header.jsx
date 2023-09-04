@@ -1,5 +1,6 @@
 import React from "react"
 
+
 function Header (props){
     return(
         <header className="Header">
@@ -9,9 +10,9 @@ function Header (props){
 
       <nav>
         <ul class="links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="genres.html">Géneros</a></li>
-          <li><a href="playlist.html">Favoritos</a></li>
+          <li> <a href="Home.js">Home</a></li>
+          <li> <a href="genres.html">Géneros</a></li>
+          <li> <a href="playlist.html">Favoritos</a></li>
         </ul>
       </nav>
 
