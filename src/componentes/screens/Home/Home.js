@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Canciones from "../../Canciones/Canciones"
+import "./Home.css"
+
 
 
 
@@ -55,14 +57,38 @@ class Home extends Component {
                  <h3 className="Titulo"> Cargando ... </h3> : ''}
 
                     <main>
+                        <article class="lists">
+                            <section class="list-container">
+                                <h2 class="h2-list">5 Top Tracks</h2>
+                                <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
+                            <section className="content-container list-text sub-list sub-list-artist sub-list-button list-text">
+                                    {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
+                                </section>
+                                <ul class="list list-artist"></ul>
+                            </section>
 
-                        <div>
-                            <h2 className="Titulo"> 5 Tops tracks</h2>
-                            <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
-                        </div>
-                        <section className="card-container">
-                            {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                        </section>
+                            <section class="list-container">
+                                <h2 class="h2-list">Artistas</h2>
+                                <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
+                                    <section className="card-container">
+                                    {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
+                                    </section>
+                                <ul class="list list-artist"></ul>
+
+
+                             </section>
+
+                             <section class="list-container">
+                                <h2 class="h2-list">Discos</h2>
+                                <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
+                                    <section className="card-container">
+                                    {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
+                                    </section>
+                                 <ul class="list list-artist"></ul>
+                             </section>
+
+                            
+                        
 
                         {/* ARMANDO EL DE ARTISTAS, creo que falta el fetch y guardar en array <div>
                             <h2 className="Artista"> 5 Tops artistas</h2>
@@ -72,8 +98,7 @@ class Home extends Component {
                             {this.state.artistas.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
                         </section> */}
 
-                    
-          
+                        </article>
                     </main>
                    
                
