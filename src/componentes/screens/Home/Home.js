@@ -76,6 +76,8 @@ class Home extends Component {
                                 <ul class="list list-artist"></ul>
 
 
+                               {/* <div class="content-container"><img src="${pic}" alt="artist"> <div class=""><h3>${name}</h3></div></div></div></a></li>`;             */}
+        
                              </section>
 
                              <section class="list-container">
