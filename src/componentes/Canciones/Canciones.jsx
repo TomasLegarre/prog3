@@ -1,26 +1,25 @@
-import React from "react"
+import React, { Component } from 'react'
+import Card from '../Card/Card'
 
-function Canciones (props){
-    console.log(props)
-    return(
-        <React.Fragment>
-            <div className="slide">
-                <p>
-                {props.datosCancion.album.title}
-                <br />
-                {props.datosCancion.artist.name}
-                </p> 
-                
-            </div>
-            
-            
 
-         </React.Fragment>
+
+
+export default class CardContainer extends Component {
+
+    render() {
+    return (
+      <>
+      <div className='cardContainer'>
+
+        {
+          this.props.peliculas.length === 0?
+          <h1>Trayendo Peliculas...</h1>:
+        this.props.peliculas.map((elm, idx) => <Card key = {elm.title + idx} id = {elm.id} poster_path = {elm.poster_path} title = {elm.title} overview = {elm.overview} actualizarState = {this.props.actualizarState? (id) => this.props.actualizarState(id) : false}/>
+        )
+        }
         
-        
-    
-        
+      </div>
+      </>
     )
+  }
 }
-
-export default Canciones

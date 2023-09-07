@@ -7,109 +7,65 @@ import "./Home.css"
 
 
 class Home extends Component {
-    constructor(props) {
+    constructor(props){
         super(props)
         this.state = {
-                canciones: [],
-                favoritos: [],
-                valor: '',
-                search: undefined
+            popular: [],
+            backup: [],
+            page: 1,
+            upcoming: [],
+            backupUp: []
         }
     }
 
-    componentDidMount() {
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=5')
-            .then(response => response.json())
-            .then(data => {this.setState(
-                { canciones: data.data },
-                console.log (data)
-            )} )
-            .catch(error => console.log('El error fue' + error))
+    componentDidMount(){
+        fetch('https://api.themoviedb.org/3/movie/popular')
+        .then (resp => resp.json())
+        .then(data => this.setState({
+            popular: data.results.slice(0,5),
+            backup: data.results.slice(0,5)
+        }))
+        .catch(err => console.log(err))
+
+        fetch('https://api.themoviedb.org/3/movie/upcoming')
+        .then(resp => resp.json())
+        .then(data => this.setState({
+            upcoming: data.results.slice(0,5),
+            backupUp: data.results.slice(0,5)
+        }))
+        .catch(err => console.log(err))
+
     }
-
-
-        evitarSubmit(evento){
-            evento.preventDefault();
-        }
-
-        controlarCambios(evento) {
-            this.setState({valor: evento.target.value});
-        }
-
-        render() {
-            console.log(this.state)
-
-            return(
-                <React.Fragment>
     
-                    <h2>Home</h2>
-        
-    
-                     
-                    <form className="search" onSubmit={(evento) => this.evitarSubmit(evento)} >
-                            <label>Busqueda:</label>
-                            <input type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor}/>
-                            <input type="submit" value="Submit"/>
-                    </form>
-
-                    {/* Prueba de cargando */}
-                    {this.state.canciones.length === 0 ?
-                 <h3 className="Titulo"> Cargando ... </h3> : ''}
-
-                    <main>
-                        <article class="lists">
-                            <section class="list-container">
-                                <h2 class="h2-list">5 Top Tracks</h2>
-                                <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
-                            <section className="content-container list-text sub-list sub-list-artist sub-list-button list-text">
-                                    {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                                </section>
-                                <ul class="list list-artist"></ul>
-                            </section>
-
-                            <section class="list-container">
-                                <h2 class="h2-list">Artistas</h2>
-                                <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
-                                    <section className="card-container">
-                                    {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                                    </section>
-                                <ul class="list list-artist"></ul>
-
-
-                             </section>
-
-                             <section class="list-container">
-                                <h2 class="h2-list">Discos</h2>
-                                <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
-                                    <section className="card-container">
-                                    {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                                    </section>
-                                 <ul class="list list-artist"></ul>
-                             </section>
-
-                            
-                        
-
-                        {/* ARMANDO EL DE ARTISTAS, creo que falta el fetch y guardar en array <div>
-                            <h2 className="Artista"> 5 Tops artistas</h2>
-                            <Link to="/" className="boton-todo"> Ver todas los artistas populares</Link>
-                        </div>
-                        <section className="card-container">
-                            {this.state.artistas.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                        </section> */}
-
-                        </article>
-                    </main>
-                   
-               
-        
-                </React.Fragment>
-            )
-        }
-
-    
+    filtrarPeliculas(nombre){
+        let peliculasFiltrados = this.state.backup.filter((elm) => elm.title.toLowerCase().includes(nombre.toLowerCase()))
+        this.setState({
+            popular: peliculasFiltrados , 
+            upcoming: peliculasFiltrados
+        })
+    }
     
 
+
+
+
+  render() {
+    return (
+      <>
+        <Form filtrarPeliculas = {(nombre) => this.filtrarPeliculas(nombre)}/>
+        <main>
+            <h1>POPULAR MOVIES</h1>
+            <Canciones peliculas = {this.state.popular}/>
+            <h1>UPCOMING MOVIES</h1>
+            <Canciones peliculas = {this.state.upcoming} />
+
+        </main>
+       
+
+
+      </>
+    )
+  }
 }
 
 export default Home;
