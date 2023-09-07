@@ -17,14 +17,14 @@ function App() {
       <Header/>
     
           <Switch> 
+
             <Route path="/" exact= {true} component= {Home} />
             <Route path="/generos" component= {Generos} />
             <Route path="/favoritos" component= {Favoritos} />
             <Route component= {NotFound} />
-
-
+            
           </Switch> 
-    
+
       <Footer />
     </React.Fragment>
     
