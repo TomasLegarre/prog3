@@ -9,8 +9,6 @@ function Artistas (props){
               <p>
               {props.datosArtistas.name}
                <br />
-              {props.datosArtistas.position}
-              <br />
               <img src={props.datosArtistas.picture_medium} alt="" />    
               </p> 
 

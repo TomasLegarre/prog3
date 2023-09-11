@@ -40,9 +40,6 @@ class Home extends Component {
     }
 
 
-
-
-
     evitarSubmit(evento){
         evento.preventDefault();
         }
