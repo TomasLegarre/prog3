@@ -9,7 +9,7 @@ function Header (props){
     return(
         <header>
       <article className="logo">
-        <a href="index.html"><img src="./img/Vibes.gif" alt="logo" /></a>
+        <a href="/"><img src="./img/Vibes.gif" alt="logo" /></a>
       </article>
 
       <nav>

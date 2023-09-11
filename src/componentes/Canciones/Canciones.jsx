@@ -1,23 +1,52 @@
-import React from "react"
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
+class Canciones extends Component{
+  constructor(props){
+      super(props)
+      this.state={
 
-function Canciones (props){
-  console.log(props)
+          boton: false,
+      }
+  }
+  verMas(){
+    this.setState({ boton:true})
+}
+verMenos(){
+    this.setState({ boton:false})
+   
+}
+
+render(){console.log(this.props);
+  const{datosCancion}=this.props 
+   
   return(
       <React.Fragment>
           <div className="slide">
               <p>
-              {props.datosCancion.album.title}
+              {datosCancion.album.title}
               <br />
-              {props.datosCancion.artist.name}
+              {datosCancion.artist.name}
               <br />
               {/* dentro del src ponemos la ruta, que la trajimos de la api en fomrato string */}
-              <img src={props.datosCancion.artist.picture_medium} alt="" />   
+              <img src={datosCancion.artist.picture_medium} alt="" />   
               </p> 
+
+               {this.state.boton !== false?
+                        <section>
+                        <button className="boton-ver" onClick={()=>this.verMenos()} >Ver menos</button>
+                        <p> Descripcion: {datosCancion.id}</p>
+                        </section>
+                        : 
+                      <button className="boton-ver" onClick= {()=> this.verMas()}> Ver mas</button>
+               }            
+
 
           </div>
 
        </React.Fragment>
     )
   } 
+}
+ 
 export default Canciones;
