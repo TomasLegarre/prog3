@@ -13,13 +13,16 @@ class Home extends Component {
                 canciones: [],
                 artistas: [],
                 valor: '',
-                search: undefined
+                search: undefined,
+               
         }
     }
     componentDidMount() {
         fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=5')
             .then(response => response.json())
-            .then(data => {this.setState(
+            .then(data => {
+                console.log (data)
+                this.setState(
                 { canciones: data.data }
 
             )} )
@@ -47,6 +50,9 @@ class Home extends Component {
         this.setState({valor: evento.target.value});
         }
 
+  
+            
+
     render() {
         console.log(this.state)
         return(
@@ -69,8 +75,10 @@ class Home extends Component {
                                 <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
                             <section className="content-container list-text sub-list sub-list-artist sub-list-button list-text">
                                     {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                                </section>  
+                            </section>  
                                 <ul className="list list-artist"></ul>
+
+
                             </section>
 
 
