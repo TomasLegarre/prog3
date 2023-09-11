@@ -5,7 +5,8 @@ import Header from './componentes/Header/Header';
 import Home from "./componentes/screens/Home/Home";
 import Generos from "./componentes/screens/Generos/Generos"
 import Favoritos from "./componentes/screens/Favoritos/Favoritos"
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import NotFound from "./componentes/NotFound/NotFound"
+import { Route, Switch } from 'react-router-dom';
 
 
 
@@ -14,15 +15,16 @@ function App() {
   return (
     <React.Fragment>
       <Header/>
-      <main>
+    
           <Switch> 
-            <Route path="/" exact= {true} component= {Home}/>
-            <Route path="/generos" component= {Generos}/>
-            <Route path="/favoritos" component= {Favoritos}/>
 
+            <Route path="/" exact= {true} component= {Home} />
+            <Route path="/generos" component= {Generos} />
+            <Route path="/favoritos" component= {Favoritos} />
+            <Route component= {NotFound} />
+            
           </Switch> 
-      </main>  
-      
+
       <Footer />
     </React.Fragment>
     
