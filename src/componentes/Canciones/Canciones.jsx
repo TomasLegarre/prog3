@@ -22,6 +22,7 @@ verMenos(){
 render(){console.log(this.props);
   const{datosCancion}=this.props 
    
+  
   return(
       <React.Fragment>
           <div className="content-container">
