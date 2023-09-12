@@ -69,7 +69,7 @@ class Home extends Component {
                                 <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
                             <section className="content-container list-text sub-list sub-list-artist sub-list-button list-text">
                                     {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                                </section>  
+                            </section>  
                                 <ul className="list list-artist"></ul>
                             </section>
 
