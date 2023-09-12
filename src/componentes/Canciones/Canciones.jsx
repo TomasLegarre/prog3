@@ -18,6 +18,7 @@ verMenos(){
    
 }
 
+
 render(){console.log(this.props);
   const{datosCancion}=this.props 
    
