@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import "./Canciones.css";
 
 class Canciones extends Component{
   constructor(props){
@@ -22,7 +23,9 @@ render(){console.log(this.props);
    
   return(
       <React.Fragment>
-          <div className="slide">
+          <div className="content-container">
+            
+ 
               <p>
               {datosCancion.album.title}
               <br />
