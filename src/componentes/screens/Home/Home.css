@@ -43,10 +43,31 @@
     text-align: center;
     width: 150px;
 }
-/* .sub-list {
+.sub-list {
     width: 360px;
     height: 160px;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     background-color: rgba(70, 69, 69, 0.377);
-  } */
+  }
+
+
+  /* Banner */
+  .banner {
+    margin-top: 2%;
+    height: 300px;
+    width: 100%;
+    filter: blur(2px);
+    z-index: 1;
+  }
+  /* index */
+  .in-banner {
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .h1-banner {
+    margin-top: 22%;
+    font-size: 70px;
+  }

@@ -25,10 +25,12 @@ render(){console.log(this.props);
   
   return(
       <React.Fragment>
+
+       
           <div className="content-container">
-            
+           
  
-              <p>
+              <p >
               {datosCancion.album.title}
               <br />
               {datosCancion.artist.name}

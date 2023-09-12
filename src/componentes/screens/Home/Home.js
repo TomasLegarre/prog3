@@ -57,7 +57,12 @@ class Home extends Component {
         console.log(this.state)
         return(
             <React.Fragment>
-                <h2>Home</h2>
+                <article class="h1-banner">
+                    <h1>Vibes</h1>
+                </article>
+            
+                <article class="in-banner banner"></article>
+
                 <form className="search" onSubmit={(evento) => this.evitarSubmit(evento)} >
                             <label>Busqueda:</label>
                             <input type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor}/>
