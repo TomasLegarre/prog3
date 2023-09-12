@@ -43,6 +43,19 @@ class Home extends Component {
     }
 
 
+    busqueda(){
+        fetch(`https://api.allorigins.win/raw?url=https://api.deezer.com/search?q=${this.state.valor}`)
+            .then(response => response.json())
+            .then(data => this.setState(
+                {
+                    search: data.results,
+                }
+
+            ))
+            .catch(error => console.log('El error fue' + error))
+            console.log(this.state.search)
+        }
+
     evitarSubmit(evento){
         evento.preventDefault();
         }
@@ -57,50 +70,65 @@ class Home extends Component {
         console.log(this.state)
         return(
             <React.Fragment>
-                <article class="h1-banner">
-                    <h1>Vibes</h1>
+            <form className="search-form" onSubmit={(evento) => this.evitarSubmit(evento)}>
+              <label>Busqueda:</label>
+              <input type="text" onChange={(evento) => this.controlarCambios(evento)} value={this.state.valor} />
+              <input type="submit" value="Submit" />
+            </form>
+          
+            {/* Prueba de cargando */}
+            {this.state.canciones.length === 0 ? <h3 className="Titulo">Cargando ...</h3> : ''}
+          
+            {this.state.search !== undefined ? (
+              <article>
+                <div className="list-container">
+                  <h2 className="h2-list">Resultado de búsqueda</h2>
+                </div>
+                <section className="list-container">
+                  {this.state.search.map((unaCancion, idx) => (
+                    <div key={unaCancion + idx} className="sub-list">
+                      <Canciones datosCancion={unaCancion} />
+                    </div>
+                  ))}
+                </section>
+              </article>
+            ) : (
+              <main>
+                <article className="lists">
+                  <section className="list-container">
+                    <h2 className="h2-list">5 Top Tracks</h2>
+                    <Link to="/generos" className="boton-todo">
+                      Ver todas las canciones populares
+                    </Link>
+                  </section>
+                  <section className="list-container">
+                    <ul className="list-artist">
+                      {this.state.canciones.map((unaCancion, idx) => (
+                        <li key={unaCancion + idx} className="sub-list">
+                          <Canciones datosCancion={unaCancion} />
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+          
+                  <section className="list-container">
+                    <h2 className="h2-list">Artistas</h2>
+                    <Link to="/" className="boton-todo">
+                      Ver todos los artistas populares
+                    </Link>
+                    <section className="list-container">
+                      {this.state.artistas.map((unArtista, idx) => (
+                        <div key={unArtista + idx} className="sub-list">
+                          <Artistas datosArtistas={unArtista} />
+                        </div>
+                      ))}
+                    </section>
+                  </section>
                 </article>
-            
-                <article class="in-banner banner"></article>
-
-                <form className="search" onSubmit={(evento) => this.evitarSubmit(evento)} >
-                            <label>Busqueda:</label>
-                            <input type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor}/>
-                            <input type="submit" value="Submit"/>
-                    </form>
-
-                    {/* Prueba de cargando */}
-                    {this.state.canciones.length === 0 ?
-                 <h3 className="Titulo"> Cargando ... </h3> : ''}
-
-                    <main>
-                        <article className="lists">
-                            <section className="list-container">
-                                <h2 className="h2-list">5 Top Tracks</h2>
-                                <Link to="/" className="boton-todo"> Ver todas las canciones populares</Link>
-                            <section className="content-container list-text sub-list sub-list-artist sub-list-button list-text">
-                                    {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
-                            </section>  
-                                <ul className="list list-artist"></ul>
-
-
-                            </section>
-
-
-                            <section className="list-container">
-                                <h2 className="h2-list">Artistas</h2>
-                                <Link to="/" className="boton-todo"> Ver todos los artistas populares </Link>
-                                <section className="card-container">
-                                    {this.state.artistas.map((unArtista, idx) => <Artistas key= {unArtista + idx} datosArtistas={unArtista} />)}
-                                </section>
-                                <ul className="list list-artist"></ul>
-                                </section> 
-                             </article>
-                    </main>
-
-
-
-                </React.Fragment>
+              </main>
+            )}
+          </React.Fragment>
+          
             )
         }
   }

@@ -1,3 +1,6 @@
+
+
+
 function Generos (){
     return (
         <div> 
