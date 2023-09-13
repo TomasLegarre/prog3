@@ -28,6 +28,7 @@ class Detalle extends Component{
     
 
     render(){
+        console.log(this.state.canciones)
         return(
             <React.Fragment >
            {this.state.canciones.map((unDetalle, idx) => <DetalleCo key={unDetalle + idx} datosDetalle={unDetalle} />)}

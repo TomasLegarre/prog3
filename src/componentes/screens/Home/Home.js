@@ -12,7 +12,12 @@ class Home extends Component {
         this.state = {
                 canciones: [],
                 artistas: [],
+<<<<<<< HEAD
                 valor: '',               
+=======
+                valor: '',
+               
+>>>>>>> 069a887 (detalle)
         }
     }
     componentDidMount() {
@@ -40,8 +45,12 @@ class Home extends Component {
         
     }
 
+<<<<<<< HEAD
 
     evitarSubmit(evento){
+=======
+   evitarSubmit(evento){
+>>>>>>> 069a887 (detalle)
         evento.preventDefault();
         // aca hacemos la logica de la busqueda
         window.location.replace('/ResultadoBusqueda/' + this.state.valor )

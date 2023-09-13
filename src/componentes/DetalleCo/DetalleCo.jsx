@@ -11,11 +11,12 @@ class DetalleCo extends Component{
     
 
     render(){
+      
         return(
            <article className="detalle-card">
-               <h1 className= "titulo1">titulo {datosDetalle.title}</h1>
-               {/* <img className="imagen-detalle" src={`${this.props.datosDetalle.}`} alt='img'/>
-             <section className="info-detalle"> 
+               <h1 className= "titulo1">titulo {this.props.datosDetalle.title}</h1>
+                <img className="imagen-detalle" src={this.props.datosDetalle.cover_medium} alt='img'/>
+             {/* <section className="info-detalle">  
                <h1 className= "titulo2"> Raiting: {this.props.datosDetalle.title}</h1>
                <h1 className= "titulo2"> Fecha de estreno: {this.props.datosDetalle.}</h1>
                <h1 className= "titulo2"> Duracion: {this.props.datosDetalle.}</h1>
@@ -30,4 +31,4 @@ class DetalleCo extends Component{
 
 }
 
-export default DetalleCo
+export default DetalleCo;
