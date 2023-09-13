@@ -40,7 +40,7 @@ render(){console.log(this.props);
     </div>
     {this.state.boton !== false ? (
       <section className="cancion-description">
-        <p> Descripcion: {datosCancion.id}</p>
+        <p> Descripcion: el titulo de esta cancion es {datosCancion.album.title} y es del artista {datosCancion.artist.name} </p>
         <button className="boton-ver" onClick={() => this.verMenos()}>Ver menos</button>
       </section>
     ) : (
