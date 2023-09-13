@@ -7,8 +7,8 @@ import Generos from "./componentes/screens/Generos/Generos"
 import Favoritos from "./componentes/screens/Favoritos/Favoritos"
 import NotFound from "./componentes/NotFound/NotFound"
 import { Route, Switch } from 'react-router-dom';
-import Detalle from "./componentes/Detalle/Detalle"
-import Banner from "../src/componentes/Banner/Banner"
+import Detalle from "./componentes/DetalleCo/DetalleCo"; 
+
 
 
 

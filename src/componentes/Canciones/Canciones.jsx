@@ -33,7 +33,10 @@ render(){console.log(this.props);
         <br />
         {datosCancion.artist.name}
       </p>
+      <Link to = {`/detalle/id/${datosCancion.id}`}>
       <img className="cancion-image" src={datosCancion.artist.picture_medium} alt="" />
+      </Link>
+      
     </div>
     {this.state.boton !== false ? (
       <section className="cancion-description">
