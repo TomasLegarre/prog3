@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./DetalleCo.css"
 
 class DetalleCo extends Component{
     constructor(props){
@@ -13,41 +14,54 @@ class DetalleCo extends Component{
     render(){
       
         return(
-           <article className= "div1">
-               {/* <h1 className= "titulo1">Titulo: {this.props.datosDetalle.title}</h1>
-                <img className="imagen-detalle" src={this.props.datosDetalle.album.cover_medium} alt='img'/> */}
-             <section className="info-detalle">  
-             {/* <h3 class="span1">Acerca del álbum</h3>
+          <React.Fragment>
+            <img className="imgTrack" src={this.props.datosDetalle.album.cover_xl} alt="img"/>
+            <div className="texto">
+            <h3 className="span1">Canción</h3>
+         
+            <span>{this.props.datosDetalle.track_position}</span>
+            <h1 className="albumName">{this.props.datosDetalle.artist.name}</h1>
+  
 
-               <h1 className= "titulo2"> Artista: {this.props.datosDetalle.artist.name}</h1>
-               <h1 className= "titulo2"> Disco: </h1>
-               <h1 className= "titulo2"> Fecha lanzamiento: </h1>
-               <h3 class="span1">Canción</h3> */}
-             {/* <span>${datosDetalle.track_position}. ${datosDetalle.title} ${time()}</span>  */}
-
-             <span class="triangulo"><iframe title="deezer-widget" src={this.props.datosDetalle.link} width="80%"height="300"
-            frameborder="0"allowtransparency="true"allow="encrypted-media;
-            clipboard-write"></iframe></span>
+            <span className="triangulo">
+              <iframe
+                title="deezer-widget"
+                src={this.props.datosDetalle.link}
+                width="80%"
+                height="300"
+                frameBorder="0"
+                allowtransparency="true"
+                allow="encrypted-media; clipboard-write"
+              ></iframe>
+            </span>
             <audio src={this.props.datosDetalle.album.cover_medium}></audio>
 
-            {/* <h3 class="span1">Acerca del álbum</h3>
-
-            <div class="div1">
-            <span class="span1">Título: </span><span class="desc"><a href="detail-album.html?id=${data.album.id}">${data.album.title}</a></span>
+            <h3 className="span1">Acerca del álbum</h3>
+            <div className="div1">
+            <span className="span1">Título: </span><span className="desc">{this.props.datosDetalle.title}</span>
             </div>
 
-            <div class="div1">
-              <span class="span1">Artistas: </span><span class="desc"><a href="detail-artist.html?id=${data.artist.id}">${data.artist.name}</a></span>
+            <div className="div1">
+              <span className="span1">Artistas: </span><span className="desc"> {this.props.datosDetalle.artist.name}</span>
             </div>
-            
-             Fecha de lanzamiento: </span> <span class="desc"> ${dataAlbum.release_date}</span> */}
-            
 
-                </section>
-           </article>
+            <div className="div2">
+              <span className="span1"> Fecha de lanzamiento: </span> <span className="desc"> {this.props.datosDetalle.release_date}</span>
+            </div>
+
+            <div className="div4">
+              <span className="span2">  Añadir a mi Favoritos</span>
+            </div>
+  
+
+          </div>
+        </React.Fragment>
 
 
-)
+
+        
+          
+    )
 }
 
 

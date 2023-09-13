@@ -1,0 +1,85 @@
+/* Estilos para el contenedor principal */
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px;
+  }
+  
+  /* Estilos para la imagen */
+  .imgTrack {
+    width: 40%; /* Asegura que la imagen se ajuste al ancho del contenedor */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-left: 300px; /* Agrega un margen derecho para separar la imagen del texto */
+    margin-top:
+  }
+  
+  /* Estilos para los encabezados */
+  .span1 {
+    font-size: 24px;
+    color: lightslategray;
+  }
+  
+  .albumName {
+    font-size: 36px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los elementos de información */
+  .texto span {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el reproductor de música */
+  .triangulo {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  /* Estilos para el reproductor de audio */
+  audio {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  /* Estilos para las secciones de detalles */
+  .div1,
+  .div2,
+  .div4 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para los títulos de sección */
+  .div1 .span1,
+  .div2 .span1,
+  .div4 .span2 {
+    font-size: 24px;
+    color: lightslategray;
+  }
+  
+  /* Estilos para los detalles */
+  .desc {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+  
+  /* Estilos para el botón "Añadir a mi Favoritos" */
+  .div4 .span2 {
+    background-color: lightslategray;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .div4 .span2:hover {
+    background-color: gray;
+  }
+  
