@@ -7,13 +7,8 @@ import Generos from "./componentes/screens/Generos/Generos"
 import Favoritos from "./componentes/screens/Favoritos/Favoritos"
 import NotFound from "./componentes/NotFound/NotFound"
 import { Route, Switch } from 'react-router-dom';
-<<<<<<< HEAD
 import Detalle from "./componentes/screens/Detalle/Detalle"; 
 import ResultadoBusqueda from "./componentes/ResultadoBuscqueda/ResultadoBusqueda";
-=======
-import DetalleCo from "./componentes/DetalleCo/DetalleCo"; 
-import Detalle from "./componentes/screens/Detalle/Detalle";
->>>>>>> 069a887 (detalle)
 
 
 
