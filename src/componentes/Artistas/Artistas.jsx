@@ -20,25 +20,27 @@ verMenos(){
 render(){
   const{datosArtistas}=this.props 
   return(
-      <React.Fragment>
-          <div className="slide">
-              <p>
-               {datosArtistas.name}
-               <br />
-              <img src={datosArtistas.picture_medium} alt="" />    
-              </p> 
-              {this.state.boton !== false?
-                        <section>
-                        <button className="boton-ver" onClick={()=>this.verMenos()} >Ver menos</button>
-                        <p> Descripcion: {datosArtistas.id}</p>
-                        </section>
-                        : 
-                        <button className="boton-ver" onClick= {()=> this.verMas()}> Ver mas</button>
-               }        
-
-          </div>
-
-       </React.Fragment>
+    <React.Fragment>
+    <div className="content-container cancion-container">
+      
+      <div className="cancion-info">
+        <p className="cancion-text">
+          {datosArtistas.name}
+          <br />
+          <img className="cancion-image" src={datosArtistas.picture_medium} alt="" />
+        </p>
+      </div>
+      {this.state.boton !== false ? (
+        <section className="cancion-description">
+          <p> Descripcion: {datosArtistas.id}</p>
+          <button className="boton-ver" onClick={() => this.verMenos()}>Ver menos</button>
+        </section>
+      ) : (
+        <button className="boton-ver" onClick={() => this.verMas()}> Ver mas</button>
+      )}
+    </div>
+  </React.Fragment>
+  
     )
   } 
 }
