@@ -7,9 +7,9 @@ import Generos from "./componentes/screens/Generos/Generos"
 import Favoritos from "./componentes/screens/Favoritos/Favoritos"
 import NotFound from "./componentes/NotFound/NotFound"
 import { Route, Switch } from 'react-router-dom';
-import Detalle from "./componentes/Detalle/Detalle"
-import Banner from "../src/componentes/Banner/Banner"
+import Detalle from "./componentes/screens/Detalle/Detalle"; 
 import ResultadoBusqueda from "./componentes/ResultadoBuscqueda/ResultadoBusqueda";
+
 
 
 
@@ -24,7 +24,7 @@ function App() {
             <Route path="/" exact= {true} component= {Home} />
             <Route path="/generos" component= {Generos} />
             <Route path="/favoritos" component= {Favoritos} />
-            {/* <Route path="/detalle/id/:id" component= {Detalle} /> */}
+            <Route path="/detalle/id/:id" component= {Detalle} />
             <Route path="/ResultadoBusqueda/:busqueda" component= {ResultadoBusqueda} />
 
 
