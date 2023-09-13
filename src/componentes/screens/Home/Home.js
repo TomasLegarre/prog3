@@ -13,13 +13,16 @@ class Home extends Component {
                 canciones: [],
                 artistas: [],
                 valor: '',
-                search: undefined
+                search: undefined,
+               
         }
     }
     componentDidMount() {
         fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=5')
             .then(response => response.json())
-            .then(data => {this.setState(
+            .then(data => {
+                console.log (data)
+                this.setState(
                 { canciones: data.data }
 
             )} )
@@ -47,11 +50,15 @@ class Home extends Component {
         this.setState({valor: evento.target.value});
         }
 
+  
+            
+
     render() {
         console.log(this.state)
         return(
             <React.Fragment>
                 <h2>Home</h2>
+
                 <form className="search" onSubmit={(evento) => this.evitarSubmit(evento)} >
                             <label>Busqueda:</label>
                             <input type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor}/>
@@ -71,6 +78,8 @@ class Home extends Component {
                                     {this.state.canciones.map((unaCancion, idx) => <Canciones key= {unaCancion + idx} datosCancion={unaCancion} />)}
                             </section>  
                                 <ul className="list list-artist"></ul>
+
+
                             </section>
 
 

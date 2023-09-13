@@ -1,2 +1,14 @@
-// aca hay que traer el id de cada cancion y armar el detalle
+import React from "react";
+function Detalle (){
+    return(
+       <div>hola</div>
+      )
+    } 
+
+
+
+
+
+export default Detalle;
+
 
