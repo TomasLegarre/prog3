@@ -21,8 +21,47 @@ ul {
 /* Estilos para el formulario de búsqueda */
 .search-form {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px auto; /* Centrar vertical y horizontalmente */
+  max-width: 400px; /* Limitar el ancho para evitar que ocupe toda la página */
 }
+
+/* Estilos para el contenedor del formulario */
+.search-form label {
+  display: block;
+  font-size: 18px;
+  color: white; /* Color del texto */
+  margin-bottom: 10px;
+}
+
+/* Estilos para el campo de entrada de texto */
+.search-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+  color: white; /* Color del texto */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-form input[type="submit"] {
+  background-color: #ff0000; /* Rojo */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Estilos para el botón de búsqueda al pasar el mouse */
+.search-form input[type="submit"]:hover {
+  background-color: #aa0000; /* Rojo más oscuro al pasar el mouse */
+}
+
+
 
 /* Estilos para el título y elementos de la caja */
 .h2-list {
