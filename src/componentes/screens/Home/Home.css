@@ -36,7 +36,6 @@ ul {
   margin: 0;
   padding: 10px;
 }
-
 /* Estilos para los elementos de la lista */
 .sub-list {
   width: 360px;
@@ -46,9 +45,6 @@ ul {
   background-color: rgba(70, 69, 69, 0.377);
   margin: 10px;
   padding: 10px;
-  display: flex;
-  flex-direction: column; /* Cambio importante para que los elementos estén dentro de la caja */
-  justify-content: space-between; /* Alineación vertical */
 }
 
 .sub-list:hover {
@@ -92,7 +88,54 @@ ul {
   text-align: center;
   align-items: center;
   margin-top: 10px;
+  font-size: 10px;
+  
 }
+
+.boton-ver {
+  background-color: rgba(70, 69, 69, 0.377);
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  
+}
+
+.boton-ver:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+/* Estilos para el contenedor principal */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para el contenedor de Canciones y Artistas */
+.cancion-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Estilos para la información de la canción o artista */
+.cancion-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el texto de la canción o artista */
+.cancion-text {
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+
 
 .boton-ver {
   background-color: rgba(70, 69, 69, 0.377);
@@ -107,36 +150,10 @@ ul {
   background-color: rgba(255, 0, 0, 0.3);
   transition: background-color 0.3s;
 }
-
-/* Estilos para el contenedor principal */
-.content-container {
+.lists {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-}
-
-/* Estilos para el contenedor de las listas */
-.list-container {
-  width: 48%; /* Ancho del 48% para las dos columnas */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Estilos para el espacio entre columnas */
-.list-container + .list-container {
-  margin-left: 4%; /* Espacio entre las dos columnas */
-}
-
-/* Estilos para la lista de artistas */
-.list-artist {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-/* Estilos para cada elemento de la lista de artistas */
-.list-artist li {
-  margin: 0;
-  padding: 0;
+  justify-content: space-around;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10%;
 }
