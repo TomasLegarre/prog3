@@ -5,12 +5,45 @@ class DetalleCo extends Component{
     constructor(props){
         super(props)
         this.state={
+          textoFavs: "agregar a favoritos",
+          boton: false,
             
             
         }
     }
-    
+    componentDidMount(){
+      let listaLocalStorage = JSON.parse(localStorage.getItem('favoritos'))
+      if (listaLocalStorage != null){
+        if (listaLocalStorage.includes(this.props.datosDetalle.id)){
+          this.setState({textoFavs:"Eliminar a favoritos"})
+  
+        } else{
+          this.setState({textoFavs:"Agregar a favoritos"})
+        }
+     }
 
+    }
+
+    Agregarfavs(){
+      let listaLocalStorage = JSON.parse(localStorage.getItem('favoritos')) //creamos variable que es igual al local storage con la clave favoritos transformado en array.
+      let Arrayfavoritos=[]
+      if (listaLocalStorage != null){
+         Arrayfavoritos=listaLocalStorage
+      }
+      if (Arrayfavoritos.includes(this.props.datosDetalle.id)){
+        this.setState({textoFavs:"Agregar a favoritos"})
+        Arrayfavoritos = Arrayfavoritos.filter( (elm) => {
+          return elm !== this.props.datosDetalle.id;
+      });
+    
+      } else{
+        this.setState({textoFavs:"Eliminar a favoritos"})
+        Arrayfavoritos.push(this.props.datosDetalle.id)
+      }
+    localStorage.setItem('favoritos',JSON.stringify(Arrayfavoritos));
+    
+    }
+    
     render(){
       
         return(
@@ -50,8 +83,10 @@ class DetalleCo extends Component{
             </div>
 
             <div className="div4">
-              <span className="span2">  Añadir a mi Favoritos</span>
+              <button className="span2" onClick={() => this.Agregarfavs()}> {this.state.textoFavs} </button>
+             
             </div>
+            
   
 
           </div>

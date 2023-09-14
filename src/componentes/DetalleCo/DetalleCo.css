@@ -58,7 +58,7 @@
   /* Estilos para los títulos de sección */
   .div1 .span1,
   .div2 .span1,
-  .div4 .span2 {
+  .div4 {
     font-size: 24px;
     color: lightslategray;
   }

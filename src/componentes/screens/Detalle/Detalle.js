@@ -26,7 +26,7 @@ class Detalle extends Component{
             .catch(error => console.log('El error es' + error))
             console.log(this.state.canciones)
 
-            fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${this.state.id}`)
+            fetch(`https://api.allorigins.win/raw?url=https://api.deezer.com/album/${this.state.id}`)
             .then(response => response.json())
             .then(data => {
                 console.log (data)

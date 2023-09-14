@@ -87,6 +87,8 @@ class Home extends Component {
                         </li>
                       ))}
                     </ul>
+                    
+
                   </section>
               
                   <section className="list-container">
