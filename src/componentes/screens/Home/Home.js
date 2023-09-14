@@ -28,12 +28,12 @@ class Home extends Component {
             .catch(error => console.log('El error fue' + error))
 
 
-            fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/artist&top?limit=5')
+            fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/album&top?limit=5')
             .then(response => response.json())
             .then(data => {
                 console.log (data)
                 this.setState(
-                { artistas: data.artists.data }
+                { artistas: data.albums.data }
   
             )} )
             .catch(error => console.log('El error fue' + error))
