@@ -7,6 +7,8 @@ function ResultadoBusqueda (){
       )
     }
 
+    // HACER C DISMOUNT
+
     // obteneidno el parametro de la ruta --> luego hacemos la busqueda a la api
 
     // dentro del comp dismount pego el fetch
