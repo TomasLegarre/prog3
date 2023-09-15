@@ -49,33 +49,18 @@ class DetalleAlbum extends Component{
         return(
           <React.Fragment>
             
-            {/* <img className="imgTrack" src={this.props.datosAlbum.album.cover_xl} alt="img"/>
+             <img className="imgTrack" src={this.props.datosAlbum.cover_xl} alt="img"/>
             <div className="texto">
-            <h3 className="span1">Canción</h3>
-          */}
-            {/* <span>{this.props.datosAlbum.track_position}</span> */}
+            <h3 className="span1">Album</h3>
+          
             <h1 className="albumName">{this.props.datosAlbum.label}</h1>
   
-{/* 
-            <span className="triangulo">
-              <iframe
-                title="deezer-widget"
-                src= {`https://widget.deezer.com/widget/dark/track/${this.props.datosAlbum.id}`}
-                width="80%"
-                height="300"
-                allowtransparency="true"
-                allow="encrypted-media; clipboard-write"
-              ></iframe>
-            </span>
-            <audio src={this.props.datosAlbum.album.cover_medium}></audio>
+
+            <audio src={this.props.datosAlbum.cover_medium}></audio>
 
             <h3 className="span1">Acerca del álbum</h3>
             <div className="div1">
             <span className="span1">Título: </span><span className="desc">{this.props.datosAlbum.title}</span>
-            </div>
-
-            <div className="div1">
-              <span className="span1">Artistas: </span><span className="desc"> {this.props.datosAlbum.artist.name}</span>
             </div>
 
             <div className="div2">
@@ -85,8 +70,8 @@ class DetalleAlbum extends Component{
             <div className="div4">
               <button className="span2" onClick={() => this.Agregarfavs()}> {this.state.textoFavs} </button>
              
-            </div> */}
-          {/* </div> */}
+            </div> 
+           </div> 
             
 
   

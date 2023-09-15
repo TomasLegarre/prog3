@@ -4,15 +4,15 @@
     flex-direction: column;
     align-items: flex-start;
     max-width: 800px;
-    margin: 0 auto; /* Centrar el contenedor */
+    margin: 0 auto; 
     padding: 20px;
   }
   
   /* Estilos para la imagen */
   .imgTrack {
-    width: 40%; /* Asegura que la imagen se ajuste al ancho del contenedor */
-    height: auto; /* Mantiene la proporción original de la imagen */
-    margin-left: 300px; /* Agrega un margen derecho para separar la imagen del texto */
+    width: 40%; 
+    height: auto; 
+    margin-left: 300px; 
   }
   
   /* Estilos para los encabezados */
