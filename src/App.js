@@ -9,6 +9,7 @@ import NotFound from "./componentes/NotFound/NotFound"
 import { Route, Switch } from 'react-router-dom';
 import Detalle from "./componentes/screens/Detalle/Detalle"; 
 import ResultadoBusqueda from "./componentes/ResultadoBuscqueda/ResultadoBusqueda";
+import DetalleAlbum from "./componentes/DetalleAlbum/DetalleAlbum"
 
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/favoritos" component= {Favoritos} />
             <Route path="/detalle/id/:id" component= {Detalle} />
             <Route path="/ResultadoBusqueda/:busqueda" component= {ResultadoBusqueda} />
+            <Route path='/detalleAlbum/id/:id' component={DetalleAlbum}/>
 
 
 

@@ -25,14 +25,17 @@ render(){
       
       <div className="cancion-info">
         <p className="cancion-text">
-          {datosArtistas.name}
+          {datosArtistas.title}
           <br />
-          <img className="cancion-image" src={datosArtistas.picture_medium} alt="" />
+          <Link to = {`/detalleAlbum/id/${datosArtistas.id}`}>
+          <img className="cancion-image" src={datosArtistas.cover_medium} alt="" />
+          </Link>
+          
         </p>
       </div>
       {this.state.boton !== false ? (
         <section className="cancion-description">
-          <p> Descripcion: {datosArtistas.id}</p>
+          <p> Descripcion: {datosArtistas.record_type} {datosArtistas.tracklist} </p>
           <button className="boton-ver" onClick={() => this.verMenos()}>Ver menos</button>
         </section>
       ) : (

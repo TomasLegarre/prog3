@@ -15,7 +15,7 @@ function Header (props){
       <nav>
         <ul className="links">
           <li><Link to="/" exact="true">Home</Link></li>
-          <li><Link to="/generos">Generos</Link></li>
+          <li><Link to="/generos">Ver todas</Link></li>
           <li><Link to="/favoritos">Favoritos</Link></li>
         </ul>
       </nav>

@@ -12,7 +12,8 @@ class Home extends Component {
         this.state = {
                 canciones: [],
                 artistas: [],
-                valor: '',               
+                valor: '',
+               
         }
     }
     componentDidMount() {
@@ -27,12 +28,12 @@ class Home extends Component {
             .catch(error => console.log('El error fue' + error))
 
 
-            fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/artist&top?limit=5')
+            fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/album&top?limit=5')
             .then(response => response.json())
             .then(data => {
                 console.log (data)
                 this.setState(
-                { artistas: data.artists.data }
+                { artistas: data.albums.data }
   
             )} )
             .catch(error => console.log('El error fue' + error))
@@ -40,8 +41,7 @@ class Home extends Component {
         
     }
 
-
-    evitarSubmit(evento){
+   evitarSubmit(evento){
         evento.preventDefault();
         // aca hacemos la logica de la busqueda
         window.location.replace('/ResultadoBusqueda/' + this.state.valor )
@@ -87,6 +87,8 @@ class Home extends Component {
                         </li>
                       ))}
                     </ul>
+                    
+
                   </section>
               
                   <section className="list-container">

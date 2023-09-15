@@ -1,30 +1,57 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import Canciones from '../Canciones/Canciones';
 
 
-function ResultadoBusqueda (){
-    return(
-       <div>Esta es tu busqueda:  </div>
-      )
+
+class ResultadoBusqueda extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+                canciones: [],  
+        }
     }
+    componentDidMount() {
+            fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/search?q=${this.props.match.params.busqueda}`)
+                .then(response=>response.json())
+            .then(data=> {
+              this.setState({canciones:data.data})
+            })
+            .catch(error=>console.log('El error fue: ' + error))
+        }
 
-    // HACER C DISMOUNT
+    render() {
+        return(
 
-    // obteneidno el parametro de la ruta --> luego hacemos la busqueda a la api
+            <React.Fragment>
+            
+          
+            {/* Prueba de cargando */}
+            {this.state.canciones.length === 0 ? <h3 className="Titulo">Cargando ...</h3> : ''}
+            
+              <main>
+                <article className="lists">
+                  <section className="list-container">
+                    <h2 className="h2-list">RESULTADO DE BUSQUEDA</h2>
+                    <ul className="list-artist">
+                      {this.state.canciones.map((unaCancion, idx) => (
+                        <li key={unaCancion + idx} className="sub-list">
+                          <Canciones datosCancion={unaCancion} />
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                </article>
+                </main>
+                
+            </React.Fragment>
+            
+            );
+          }       
+  }
 
-    // dentro del comp dismount pego el fetch
-
-//     fetch(`https://api.allorigins.win/raw?url=https://api.deezer.com/search?q=${this.state.valor}`)
-//     .then(response => response.json())
-//     .then(data => this.setState(
-//        {
-//             search: data.results, 
-//        }
-
-//    ))
-//     .catch(error => console.log('El error fue' + error))
-//     console.log(this.state.search)
-
-
+        
+        
 
 
 
