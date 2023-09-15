@@ -89,7 +89,7 @@ class Home extends Component {
                   </section>
               
                   <section className="list-container">
-                    <h2 className="h2-list">Artistas</h2>
+                    <h2 className="h2-list">Àlbum</h2>
                     {this.state.artistas.map((unArtista, idx) => (
                       <div key={unArtista + idx} className="sub-list">
                         <Artistas datosArtistas={unArtista} />
