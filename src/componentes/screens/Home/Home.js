@@ -77,9 +77,6 @@ class Home extends Component {
                 <article className="lists">
                   <section className="list-container">
                     <h2 className="h2-list">5 Top Tracks</h2>
-                    <Link to="/generos" className="boton-todo">
-                      Ver todas las canciones populares
-                    </Link>
                     <ul className="list-artist">
                       {this.state.canciones.map((unaCancion, idx) => (
                         <li key={unaCancion + idx} className="sub-list">
@@ -93,9 +90,6 @@ class Home extends Component {
               
                   <section className="list-container">
                     <h2 className="h2-list">Artistas</h2>
-                    <Link to="/" className="boton-todo">
-                      Ver todos los artistas populares
-                    </Link>
                     {this.state.artistas.map((unArtista, idx) => (
                       <div key={unArtista + idx} className="sub-list">
                         <Artistas datosArtistas={unArtista} />

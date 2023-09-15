@@ -45,7 +45,7 @@ class DetalleCo extends Component{
     }
     
     render(){
-      
+      console.log(this.props.datosDetalle);
         return(
           <React.Fragment>
             <img className="imgTrack" src={this.props.datosDetalle.album.cover_xl} alt="img"/>
@@ -59,10 +59,9 @@ class DetalleCo extends Component{
             <span className="triangulo">
               <iframe
                 title="deezer-widget"
-                src={this.props.datosDetalle.link}
+                src= {`https://widget.deezer.com/widget/dark/track/${this.props.datosDetalle.id}`}
                 width="80%"
                 height="300"
-                frameBorder="0"
                 allowtransparency="true"
                 allow="encrypted-media; clipboard-write"
               ></iframe>
