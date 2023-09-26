@@ -11,10 +11,10 @@ class Canciones extends Component{
           boton: false,
       }
   }
-  componentDidMount(){
+  componentDidMount(){ // cambiar estado de textofavs
     let listaLocalStorage = JSON.parse(localStorage.getItem('favoritos'))
-    if (listaLocalStorage != null){
-      if (listaLocalStorage.includes(this.props.datosCancion.id)){
+    if (listaLocalStorage != null){ 
+      if (listaLocalStorage.includes(this.props.datosCancion.id)){ // si incluye, cancion marcada como fav
         this.setState({textoFavs:"Eliminar a favoritos"})
 
       } else{
@@ -34,17 +34,17 @@ verMenos(){
 Agregarfavs(){
   let listaLocalStorage = JSON.parse(localStorage.getItem('favoritos')) //creamos variable que es igual al local storage con la clave favoritos transformado en array.
   let Arrayfavoritos=[]
-  if (listaLocalStorage != null){
+  if (listaLocalStorage != null){ 
      Arrayfavoritos=listaLocalStorage
   }
-  if (Arrayfavoritos.includes(this.props.datosCancion.id)){
-    this.setState({textoFavs:"Agregar a favoritos"})
-    Arrayfavoritos = Arrayfavoritos.filter( (elm) => {
-      return elm !== this.props.datosCancion.id;
-  });
+    if (Arrayfavoritos.includes(this.props.datosCancion.id)){
+      this.setState({textoFavs:"Agregar a favoritos"})  // error
+      Arrayfavoritos = Arrayfavoritos.filter( (elm) => {
+        return elm !== this.props.datosCancion.id; // nos devuelve un nuevo array que no contenga al id, elimina el ID de la canción actual de la lista de favoritos.
+    });
 
   } else{
-    this.setState({textoFavs:"Eliminar a favoritos"})
+    this.setState({textoFavs:"Eliminar a favoritos"}) //error
     Arrayfavoritos.push(this.props.datosCancion.id)
   }
 localStorage.setItem('favoritos',JSON.stringify(Arrayfavoritos));
@@ -53,7 +53,7 @@ localStorage.setItem('favoritos',JSON.stringify(Arrayfavoritos));
 
 
 render(){console.log(this.props);
-  const{datosCancion}=this.props 
+  const{datosCancion}= this.props 
    
   
   return(

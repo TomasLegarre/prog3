@@ -13,7 +13,7 @@ class ResultadoBusqueda extends Component {
     }
     componentDidMount() {
             fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/search?q=${this.props.match.params.busqueda}`)
-                .then(response=>response.json())
+            .then(response=>response.json())
             .then(data=> {
               this.setState({canciones:data.data})
             })
